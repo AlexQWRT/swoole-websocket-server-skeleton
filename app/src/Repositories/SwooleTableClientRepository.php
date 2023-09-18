@@ -6,7 +6,7 @@ use App\Services\Repositories\ClientRepositoryInterface;
 use Generator;
 use Swoole\Table;
 
-class ClientRepository implements ClientRepositoryInterface
+class SwooleTableClientRepository implements ClientRepositoryInterface
 {
     protected readonly Table $table;
     protected const FD_COLUMN = 'fd';

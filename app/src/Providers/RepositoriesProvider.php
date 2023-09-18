@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Repositories\ClientRepository;
+use App\Repositories\SwooleTableClientRepository;
 use App\Services\ProviderInterface;
 use App\Services\Repositories\ClientRepositoryInterface;
 
@@ -13,7 +13,7 @@ class RepositoriesProvider implements ProviderInterface
     {
         return [
             ClientRepositoryInterface::class => function() {
-                return new ClientRepository();
+                return new SwooleTableClientRepository();
             },
         ];
     }

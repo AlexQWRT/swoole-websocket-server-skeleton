@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\ServerHandlers;
+namespace App\Services\Server;
 
 use Swoole\WebSocket\Frame;
 use Swoole\WebSocket\Server;

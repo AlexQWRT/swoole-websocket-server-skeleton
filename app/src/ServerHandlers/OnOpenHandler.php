@@ -3,9 +3,8 @@
 namespace App\ServerHandlers;
 
 use App\Services\Repositories\ClientRepositoryInterface;
-use App\Services\ServerHandlers\OnOpenHandlerInterface;
+use App\Services\Server\OnOpenHandlerInterface;
 use Swoole\Http\Request;
-use Swoole\Http\Response;
 use Swoole\WebSocket\Server;
 
 class OnOpenHandler implements OnOpenHandlerInterface

@@ -5,9 +5,10 @@
 /** @var Server $server */
 /** @var Container $container */
 
-use App\Services\ServerHandlers\OnCloseHandlerInterface;
-use App\Services\ServerHandlers\OnMessageHandlerInterface;
-use App\Services\ServerHandlers\OnOpenHandlerInterface;
+use App\ServerHandlers\OnStartHandler;
+use App\Services\Server\OnCloseHandlerInterface;
+use App\Services\Server\OnMessageHandlerInterface;
+use App\Services\Server\OnOpenHandlerInterface;
 use DI\Container;
 use Swoole\WebSocket\Server;
 
@@ -16,9 +17,11 @@ $server = require dirname(__DIR__) . '/bootstrap/ws-server.php';
 $onMessage = $container->get(OnMessageHandlerInterface::class);
 $onOpen = $container->get(OnOpenHandlerInterface::class);
 $onClose = $container->get(OnCloseHandlerInterface::class);
+$onStart = $container->get(OnStartHandler::class);
 
 $server->on('message', [$onMessage, 'handle'](...));
 $server->on('open', [$onOpen, 'handle'](...));
 $server->on('close', [$onClose, 'handle'](...));
+$server->on('start', [$onStart, 'handle'](...));
 
 $server->start();

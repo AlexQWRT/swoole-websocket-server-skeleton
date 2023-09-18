@@ -5,11 +5,14 @@ namespace App\Providers;
 use App\ServerHandlers\OnCloseHandler;
 use App\ServerHandlers\OnMessageHandler;
 use App\ServerHandlers\OnOpenHandler;
+use App\ServerHandlers\OnStartHandler;
 use App\Services\ProviderInterface;
 use App\Services\Repositories\ClientRepositoryInterface;
-use App\Services\ServerHandlers\OnCloseHandlerInterface;
-use App\Services\ServerHandlers\OnMessageHandlerInterface;
-use App\Services\ServerHandlers\OnOpenHandlerInterface;
+use App\Services\Server\OnCloseHandlerInterface;
+use App\Services\Server\OnMessageHandlerInterface;
+use App\Services\Server\OnOpenHandlerInterface;
+use App\Services\Server\OnStartHandlerInterface;
+use DI\Container;
 
 class ServerHandlerProvider implements ProviderInterface
 {
@@ -26,6 +29,9 @@ class ServerHandlerProvider implements ProviderInterface
             OnCloseHandlerInterface::class => function (ClientRepositoryInterface $clientRepository) {
                 return new OnCloseHandler($clientRepository);
             },
+            OnStartHandlerInterface::class => function (Container $container) {
+                return new OnStartHandler($container);
+            }
         ];
     }
 }

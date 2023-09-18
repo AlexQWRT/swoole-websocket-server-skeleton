@@ -3,7 +3,7 @@
 namespace App\ServerHandlers;
 
 use App\Services\Repositories\ClientRepositoryInterface;
-use App\Services\ServerHandlers\OnCloseHandlerInterface;
+use App\Services\Server\OnCloseHandlerInterface;
 use Swoole\WebSocket\Server;
 
 class OnCloseHandler implements OnCloseHandlerInterface
