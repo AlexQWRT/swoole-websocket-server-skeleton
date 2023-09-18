@@ -1,0 +1,6 @@
+xdebug.cli_color = 1
+xdebug.trigger_value = 1
+xdebug.client_host = XDEBUG_CLIENT_HOST
+xdebug.client_port = 9003
+xdebug.mode = develop, debug
+xdebug.start_with_request = yes

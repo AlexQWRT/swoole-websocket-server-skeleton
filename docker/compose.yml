@@ -1,0 +1,17 @@
+
+services:
+  php-ws:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    user: www-data
+    container_name: ${COMPOSE_PROJECT_NAME}_php-ws
+    volumes:
+      - ../app:/app
+      - ./php/assets/supervisord.conf:/etc/supervisord.conf
+    networks:
+      - net
+
+networks:
+  net:
+    name: ${COMPOSE_PROJECT_NAME}_net

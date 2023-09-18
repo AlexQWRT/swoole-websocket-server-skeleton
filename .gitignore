@@ -1,0 +1,6 @@
+.idea
+.env
+/docker/*override.yml
+coverage
+*.ini
+*.pid

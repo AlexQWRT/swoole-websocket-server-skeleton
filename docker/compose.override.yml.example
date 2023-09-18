@@ -1,0 +1,10 @@
+
+services:
+  php-ws:
+    ports:
+      - "127.0.0.1:5000:5000"
+    volumes:
+      - ./php/assets/xdebug.ini:/usr/local/etc/php/conf.d/zz-xdebug.ini
+    command: supervisord
+    environment:
+      PHP_IDE_CONFIG: "serverName=localhost"
