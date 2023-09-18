@@ -31,8 +31,7 @@ install-php-xdebug-ini:
 
 install-docker-php-ws:
 	cd docker && \
-	docker compose build --build-arg HOST_UID=$(shell id -u) php-ws && \
-	docker compose up -d php-ws
+	docker compose build --build-arg HOST_UID=$(shell id -u) php-ws
 
 install-php-composer-packages:
 	cd docker && docker compose run --rm -T php-ws composer install
