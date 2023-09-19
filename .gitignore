@@ -1,6 +1,7 @@
 .idea
 .env
-/docker/*override.yml
+/docker/*.override.yml
+/docker/**/*.conf
 coverage
 *.ini
 *.pid
