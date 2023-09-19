@@ -8,16 +8,13 @@ use Swoole\Table;
 
 class SwooleTableClientRepository implements ClientRepositoryInterface
 {
-    protected readonly Table $table;
-    protected const FD_COLUMN = 'fd';
-    protected const USER_ID_COLUMN = 'userId';
+    public const FD_COLUMN = 'fd';
+    public const USER_ID_COLUMN = 'userId';
 
-    public function __construct()
+    public function __construct(
+        protected readonly Table $table
+    )
     {
-        $this->table = new Table(1024);
-        $this->table->column(self::FD_COLUMN, Table::TYPE_INT, 64);
-        $this->table->column(self::USER_ID_COLUMN, Table::TYPE_STRING, 256);
-        $this->table->create();
     }
 
     public function addClient(int $fd, string $userId): void
